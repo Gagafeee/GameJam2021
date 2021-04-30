@@ -9,6 +9,7 @@ public class playerController : MonoBehaviour
     float speed = 10f;
     [SerializeField]
     Rigidbody2D controller;
+    private Vector3 velocity = Vector3.zero;
     void Start()
 	{
         Application.targetFrameRate = 60;
@@ -19,9 +20,9 @@ public class playerController : MonoBehaviour
         float x = Input.GetAxis("Vertical");
         float y = Input.GetAxis("Horizontal");
 
-        Vector2 moveVector = transform.up * x * speed +transform.right* y * speed;
+        Vector3 moveVector = transform.up * x * speed +transform.right* y * speed;
 
-        controller.AddForce(moveVector);
+        controller.velocity= Vector3.SmoothDamp(controller.velocity,moveVector,ref velocity, .05f);
 
     }
 
