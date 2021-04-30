@@ -470,11 +470,11 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 453c908136e63ee4198c35ca5d246071, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -504,6 +504,7 @@ GameObject:
   - component: {fileID: 1080275229}
   - component: {fileID: 1080275228}
   - component: {fileID: 1080275227}
+  - component: {fileID: 1080275230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -576,3 +577,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1080275230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080275226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d6dbc18546237a47b2076de0796dfe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 634639195}
+  smoothSpeed: 12
+  Offset: {x: 2, y: 2, z: 0}
