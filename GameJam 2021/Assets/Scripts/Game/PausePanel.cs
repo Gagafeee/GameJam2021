@@ -7,7 +7,8 @@ public class PausePanel : MonoBehaviour
 {
     public GameObject Panel;
     public bool isInPause;
-
+    public Component playerControllerScript;
+    public GameObject player;
 
     private void Update()
     {
@@ -29,7 +30,7 @@ public class PausePanel : MonoBehaviour
 
     public void Pause()
     {
-        playerController.Instance.movementIsEnabled = false;
+        //playerController.Instance.movementIsEnabled = false;
         cameraFollow.Instance.isActive = false;
         Panel.SetActive(true);
         isInPause = true;
@@ -38,7 +39,7 @@ public class PausePanel : MonoBehaviour
     public void Resume()
     {
         Panel.SetActive(false);
-        playerController.Instance.movementIsEnabled = true;
+        player.playerControllerScript.movementIsEnabled = true;
         cameraFollow.Instance.isActive = true;
         isInPause = false;
     }
