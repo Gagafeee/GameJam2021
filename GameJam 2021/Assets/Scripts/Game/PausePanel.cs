@@ -9,7 +9,7 @@ public class PausePanel : MonoBehaviour
 
     public void Pause()
     {
-        playerController
+        playerController.Instance.movementIsEnabled = false;
         Panel.SetActive(true);
         
     }

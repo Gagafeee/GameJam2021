@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour
 {
-    public static playerController instance;
+    public static playerController Instance;
 
     public bool movementIsEnabled;
     [SerializeField]
@@ -16,7 +16,7 @@ public class playerController : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        Instance = this;
     }
 
     void Start()
