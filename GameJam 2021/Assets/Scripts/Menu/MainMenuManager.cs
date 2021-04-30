@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -15,5 +16,17 @@ public class MainMenuManager : MonoBehaviour
     public void minimizePanel()
     {
         mainPanelAnimator.SetBool("isTargeted", false);
+    }
+
+    public void quitApp()
+    {
+        LoadingSystem.Instance.LoadOperation("Application.Quit(0)");
+        Application.Quit();
+    }
+
+    public void play()
+    {
+        LoadingSystem.Instance.LoadOperation("Event.Play()");
+        SceneManager.LoadScene("Game");
     }
 }
