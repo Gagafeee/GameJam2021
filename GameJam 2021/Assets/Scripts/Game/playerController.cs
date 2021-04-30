@@ -22,7 +22,7 @@ public class playerController : MonoBehaviour
 
         Vector3 moveVector = transform.up * x * speed +transform.right* y * speed;
 
-        controller.velocity= Vector3.SmoothDamp(controller.velocity,moveVector,ref velocity, .05f);
+        controller.velocity= Vector3.SmoothDamp(controller.velocity,moveVector,ref velocity, .03f);
 
     }
 
