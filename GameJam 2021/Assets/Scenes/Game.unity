@@ -733,7 +733,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23bcc4c84520e2b4989976fe46cd01c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Panel: {fileID: 0}
+  Panel: {fileID: 1533202937}
+  isInPause: 0
 --- !u!1 &382513900
 GameObject:
   m_ObjectHideFlags: 0
@@ -1215,6 +1216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d6dbc18546237a47b2076de0796dfe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 0
   target: {fileID: 634639195}
   smoothSpeed: 12
   Offset: {x: 2, y: 2, z: 0}
