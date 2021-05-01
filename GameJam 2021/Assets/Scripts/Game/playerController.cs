@@ -18,9 +18,7 @@ namespace Game
         [SerializeField]
         public Rigidbody2D controller;
         [SerializeField]
-        public Transform groundCheckLeft;
-        [SerializeField]
-        public Transform groundCheckRight;
+        Collider2D Groundcheck;
 
         private Vector3 _velocity = Vector3.zero;
         public bool jumping = false;
@@ -37,17 +35,24 @@ namespace Game
             Application.targetFrameRate = 60;
         }
 
-
-
-        void FixedUpdate()
+        private void OnTriggerEnter2D(Collider2D Groundcheck)
         {
-            isGrounded = Physics2D.OverlapArea(groundCheckLeft.position,groundCheckRight.position);
+            isGrounded = true;
+            Debug.Log("change state grounded true");
+        }
+
+
+
+		void FixedUpdate()
+        {
+            //isGrounded = Physics2D.OverlapArea(groundCheckLeft.position,groundCheckRight.position);
 
 
             if (!movementIsEnabled) return;
             if (Input.GetButtonDown("Jump")  & isGrounded )
             {
                 jumping = true;
+                isGrounded = false;
 
             }
             float y = Input.GetAxis("Horizontal");
