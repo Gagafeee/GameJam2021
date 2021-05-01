@@ -11,6 +11,13 @@ public class PausePanel : MonoBehaviour
     public bool isInPause;
     public Animator panelAnimator;
 
+    public static PausePanel instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -37,7 +44,7 @@ public class PausePanel : MonoBehaviour
         isInPause = true;
     }
 
-    private IEnumerator PauseCor()
+    public IEnumerator PauseCor()
     {
         // ReSharper disable once Unity.PreferAddressByIdToGraphicsParams
         panelAnimator.SetBool("isVisible", true);
