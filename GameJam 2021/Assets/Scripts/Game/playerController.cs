@@ -1,7 +1,5 @@
-using UnityEngine;
 using System.Collections;
 using UnityEngine;
-using System.Collections.Generic;
 
 namespace Game
 {
@@ -50,13 +48,9 @@ namespace Game
 
     playerAnimator.SetFloat("Speed", controller.velocity.x);
             if (!movementIsEnabled) return;
-            if (Input.GetButtonDown("Jump")  & isGrounded )
+            if (Input.GetButtonDown("Jump")  && isGrounded )
             {
-                
-                PlateformManager.instance.MovePlatform();
-                jumping = true;
-                isGrounded = false;
-
+                StartCoroutine(Jump());
             }
             float y = Input.GetAxis("Horizontal");
             if (y < 0)
@@ -85,8 +79,16 @@ namespace Game
 
             
         }
-        
-        
-        
+
+        public IEnumerator Jump()
+        {
+            playerAnimator.SetTrigger("Jump");
+            yield return new WaitForSeconds(0.15f);
+            PlateformManager.instance.MovePlatform();
+            jumping = true;
+            isGrounded = false;
+        }
+
+
     }
 }
