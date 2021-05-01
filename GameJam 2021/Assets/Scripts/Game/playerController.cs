@@ -53,15 +53,15 @@ namespace Game
             playerAnimator.SetBool("isGrounded", isGrounded);
             playerAnimator.SetFloat("Speed", controller.velocity.x);
             if (!movementIsEnabled) return;
-            if (Input.GetButtonDown("Jump")  && isGrounded )
+            if (Input.GetButtonDown("Jump") && isGrounded)
             {
                 StartCoroutine(Jump());
             }
             float y = Input.GetAxis("Horizontal");
             if (y < 0)
-			{
+            {
                 y = 0f;
-			}
+            }
 
             Vector3 moveVector = transform.right * y * speed;
             moveVector.y = controller.velocity.y;
@@ -72,10 +72,10 @@ namespace Game
                 controller.AddForce(new Vector2(0f, jumpForce));
                 jumping = false;
             }
-            
-            
 
-            
+
+
+
         }
 
         public IEnumerator Jump()
@@ -90,3 +90,4 @@ namespace Game
 
     }
 }
+
