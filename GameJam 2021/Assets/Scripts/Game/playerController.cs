@@ -38,7 +38,6 @@ namespace Game
         private void OnTriggerStay2D(Collider2D Groundcheck)
         {
             isGrounded = true;
-            Debug.Log("change state grounded true");
         }
 
         private void OnTriggerExit2D(Collider2D other)
