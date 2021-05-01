@@ -51,8 +51,14 @@ public class PausePanel : MonoBehaviour
 
     public void Resume()
     {
+<<<<<<< Updated upstream
         StartCoroutine(ResumeCor());
         
+=======
+        Panel.SetActive(false);
+        //player.playerControllerScript.movementIsEnabled = true;
+        cameraFollow.Instance.isActive = true;
+>>>>>>> Stashed changes
         isInPause = false;
     }
 
