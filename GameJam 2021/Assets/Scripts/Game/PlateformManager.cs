@@ -35,7 +35,7 @@ public class PlateformManager : MonoBehaviour
 
         for (var i = 0; i < redPlateform.Length; i++)
         {
-            
+            //GameObject.CreatePrimitive()
             Vector3 dir = target.position - redPlateform[i].transform.position;
             redPlateform[i].transform.Translate(dir.normalized * (speed * Time.deltaTime), Space.World);
         }
