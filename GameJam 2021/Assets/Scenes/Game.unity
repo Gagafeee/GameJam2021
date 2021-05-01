@@ -300,6 +300,7 @@ Transform:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 2012849701}
   - {fileID: 2111875923}
 =======
@@ -308,6 +309,10 @@ Transform:
 >>>>>>> parent of 80e1de7 (Animation 3)
 =======
 >>>>>>> parent of 80e1de7 (Animation 3)
+=======
+  - {fileID: 2012849701}
+  - {fileID: 2111875923}
+>>>>>>> parent of 436873e (Merge branch 'main' of https://github.com/Gagafeee/GameJam2021 into main)
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -860,6 +865,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 546091783}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.48519993, y: -6.8384, z: 2.605852}
   m_LocalScale: {x: 24.2804, y: 8.789461, z: 1}
@@ -874,6 +880,11 @@ Transform:
 >>>>>>> parent of 80e1de7 (Animation 3)
 =======
 >>>>>>> parent of 80e1de7 (Animation 3)
+=======
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.48519993, y: -6.8384, z: 2.605852}
+  m_LocalScale: {x: 24.2804, y: 8.789461, z: 1}
+>>>>>>> parent of 436873e (Merge branch 'main' of https://github.com/Gagafeee/GameJam2021 into main)
   m_Children: []
   m_Father: {fileID: 154312982}
   m_RootOrder: 2
@@ -1265,6 +1276,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_GravityScale: 2.5
 =======
   m_GravityScale: 1
@@ -1275,6 +1287,9 @@ Rigidbody2D:
 >>>>>>> parent of 80e1de7 (Animation 3)
 =======
 >>>>>>> parent of 80e1de7 (Animation 3)
+=======
+  m_GravityScale: 2.5
+>>>>>>> parent of 436873e (Merge branch 'main' of https://github.com/Gagafeee/GameJam2021 into main)
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 1
@@ -7784,6 +7799,7 @@ SpriteRenderer:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Color: {r: 0.54901963, g: 0, b: 0, a: 1}
 =======
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -7794,6 +7810,9 @@ SpriteRenderer:
 =======
   m_Color: {r: 1, g: 0, b: 0, a: 1}
 >>>>>>> parent of 80e1de7 (Animation 3)
+=======
+  m_Color: {r: 0.54901963, g: 0, b: 0, a: 1}
+>>>>>>> parent of 436873e (Merge branch 'main' of https://github.com/Gagafeee/GameJam2021 into main)
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
