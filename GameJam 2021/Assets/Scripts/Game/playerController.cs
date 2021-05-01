@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -34,19 +35,24 @@ namespace Game
             Application.targetFrameRate = 60;
         }
 
-        private void OnTriggerEnter2D(Collider2D Groundcheck)
+        private void OnTriggerStay2D(Collider2D Groundcheck)
         {
             isGrounded = true;
             Debug.Log("change state grounded true");
         }
 
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            isGrounded = false;
+        }
 
 
-		void FixedUpdate()
+        void FixedUpdate()
         {
             //isGrounded = Physics2D.OverlapArea(groundCheckLeft.position,groundCheckRight.position);
 
-    playerAnimator.SetFloat("Speed", controller.velocity.x);
+            playerAnimator.SetBool("isGrounded", isGrounded);
+            playerAnimator.SetFloat("Speed", controller.velocity.x);
             if (!movementIsEnabled) return;
             if (Input.GetButtonDown("Jump")  && isGrounded )
             {
@@ -62,15 +68,8 @@ namespace Game
             moveVector.y = controller.velocity.y;
 
             controller.velocity = Vector3.SmoothDamp(controller.velocity, moveVector, ref _velocity, .03f);
-
-
-
-
             if (jumping)
             {
-
-                
-                
                 controller.AddForce(new Vector2(0f, jumpForce));
                 jumping = false;
             }
