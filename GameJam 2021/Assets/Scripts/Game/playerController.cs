@@ -1,8 +1,7 @@
+using UnityEngine;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
-using Slider = UnityEngine.UI.Slider;
+using System.Collections.Generic;
 
 namespace Game
 {
@@ -24,6 +23,8 @@ namespace Game
         public bool jumping = false;
         public bool isGrounded = false;
         public bool movementIsEnabled = true;
+
+        public Animator playerAnimator;
 
         private void Awake()
         {
@@ -47,10 +48,12 @@ namespace Game
         {
             //isGrounded = Physics2D.OverlapArea(groundCheckLeft.position,groundCheckRight.position);
 
-
+    playerAnimator.SetFloat("Speed", controller.velocity.x);
             if (!movementIsEnabled) return;
             if (Input.GetButtonDown("Jump")  & isGrounded )
             {
+                
+                PlateformManager.instance.MovePlatform();
                 jumping = true;
                 isGrounded = false;
 
@@ -82,5 +85,8 @@ namespace Game
 
             
         }
+        
+        
+        
     }
 }
