@@ -24,7 +24,7 @@ namespace Game
         public bool isGrounded = false;
         public bool movementIsEnabled = true;
 
-        public Slider jumpSlider;
+
 
         private void Awake()
         {
@@ -33,7 +33,7 @@ namespace Game
 
         void Start()
         {
-            jumpSlider.value = 100;
+
             Application.targetFrameRate = 60;
         }
 
@@ -50,19 +50,25 @@ namespace Game
                 jumping = true;
 
             }
+
+
             float y = Input.GetAxis("Horizontal");
+            if(y < 0)
+			{
+                y = 0;
+			}
+             
 
 
             Vector3 moveVector = transform.right * y * speed;
+            moveVector.y = controller.velocity.y;
             controller.velocity = Vector3.SmoothDamp(controller.velocity, moveVector, ref _velocity, .03f);
 
 
 
 
             if (jumping)
-            {
-                
-                
+            {   
                 
                 controller.AddForce(new Vector2(0f, jumpForce));
                 jumping = false;
