@@ -297,8 +297,11 @@ Transform:
   - {fileID: 860298947}
   - {fileID: 1005252150}
   - {fileID: 2138945602}
+<<<<<<< HEAD
   - {fileID: 2012849701}
   - {fileID: 2111875923}
+=======
+>>>>>>> parent of 80e1de7 (Animation 3)
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -850,9 +853,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 546091783}
+<<<<<<< HEAD
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.48519993, y: -6.8384, z: 2.605852}
   m_LocalScale: {x: 24.2804, y: 8.789461, z: 1}
+=======
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -3.65, z: 2.605852}
+  m_LocalScale: {x: 25.25, y: 2.4125, z: 1}
+>>>>>>> parent of 80e1de7 (Animation 3)
   m_Children: []
   m_Father: {fileID: 154312982}
   m_RootOrder: 2
@@ -1243,7 +1252,11 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
+<<<<<<< HEAD
   m_GravityScale: 2.5
+=======
+  m_GravityScale: 1
+>>>>>>> parent of 80e1de7 (Animation 3)
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 1
@@ -7750,7 +7763,11 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -8
   m_Sprite: {fileID: 7482667652216324306, guid: db750325989564987a34393247d883b4, type: 3}
+<<<<<<< HEAD
   m_Color: {r: 0.54901963, g: 0, b: 0, a: 1}
+=======
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+>>>>>>> parent of 80e1de7 (Animation 3)
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
