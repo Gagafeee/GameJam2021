@@ -7,13 +7,19 @@ using UnityEngine.SceneManagement;
 
 public class PausePanel : MonoBehaviour
 {
+    public static PausePanel instance;
     public GameObject panel;
     public bool isInPause;
     public Animator panelAnimator;
 
+    private void Awake()
+    {
+        instance = this;
+    }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && DieZone.instance.isDie == false)
         {
             if (isInPause)
             {
@@ -37,7 +43,7 @@ public class PausePanel : MonoBehaviour
         isInPause = true;
     }
 
-    private IEnumerator PauseCor()
+    public IEnumerator PauseCor()
     {
         // ReSharper disable once Unity.PreferAddressByIdToGraphicsParams
         panelAnimator.SetBool("isVisible", true);
