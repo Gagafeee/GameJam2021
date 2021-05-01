@@ -10,14 +10,15 @@ public class PlateformManager : MonoBehaviour
 
     public float redPlateformPosX;
     public int size;
-    private Vector3 _transformPosition;
-    public Vector3 position;
+    public float speed;
+    public Transform target;
 
     private void Start()
     {
         redPlateform = GameObject.FindGameObjectsWithTag("Plateform");
         MovePlatform();
-        size = redPlateform.Length; 
+        size = redPlateform.Length;
+        target = (redPlateformPosX,0,0);
 
     }
 
@@ -31,10 +32,12 @@ public class PlateformManager : MonoBehaviour
 
     private void MovePlatform()
     {
-        position = new Vector3(0, 0, 0);
+
         for (var i = 0; i < redPlateform.Length; i++)
         {
-            redPlateform[i].transform.position += position;
+            
+            Vector3 dir = target.position - redPlateform[i].transform.position;
+            redPlateform[i].transform.Translate(dir.normalized * (speed * Time.deltaTime), Space.World);
         }
     }
 }

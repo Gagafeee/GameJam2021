@@ -27,8 +27,6 @@ namespace Game
         public bool isGrounded = false;
         public bool movementIsEnabled = true;
 
-        public Slider jumpSlider;
-
         private void Awake()
         {
             Instance = this;
@@ -50,7 +48,6 @@ namespace Game
             if (Input.GetButtonDown("Jump")  & isGrounded )
             {
                 jumping = true;
-                StartCoroutine(JumpEvent());
 
             }
             float y = Input.GetAxis("Horizontal");
@@ -74,16 +71,6 @@ namespace Game
             
 
             
-        }
-
-
-        public IEnumerator JumpEvent()
-        {
-            for (float i = jumpSlider.value; i < 0; i--)
-            {
-                jumpSlider.value--;
-                yield return new WaitForSeconds(0.1f);
-            }
         }
     }
 }
