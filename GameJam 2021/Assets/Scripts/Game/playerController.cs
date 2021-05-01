@@ -51,9 +51,14 @@ namespace Game
 
             }
             float y = Input.GetAxis("Horizontal");
-
+            if (y < 0)
+			{
+                y = 0f;
+			}
 
             Vector3 moveVector = transform.right * y * speed;
+            moveVector.y = controller.velocity.y;
+
             controller.velocity = Vector3.SmoothDamp(controller.velocity, moveVector, ref _velocity, .03f);
 
 

@@ -266,6 +266,7 @@ Transform:
   - {fileID: 546091784}
   - {fileID: 2012849701}
   - {fileID: 2111875923}
+  - {fileID: 2041041852}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -284,6 +285,8 @@ MonoBehaviour:
   redPlateform: []
   redPlateformPosX: 10
   size: 0
+  speed: 0
+  target: {fileID: 2041041852}
 --- !u!1 &217940588
 GameObject:
   m_ObjectHideFlags: 0
@@ -947,13 +950,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   jumpForce: 250
-  controllerRB: {fileID: 634639197}
+  controller: {fileID: 634639197}
   groundCheckLeft: {fileID: 1537459519}
   groundCheckRight: {fileID: 22850361}
   jumping: 0
   isGrounded: 0
   movementIsEnabled: 1
-  jumpSlider: {fileID: 830418516}
 --- !u!1 &671830293
 GameObject:
   m_ObjectHideFlags: 0
@@ -2168,6 +2170,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e2f59b7799b5434e8b56ade1624ba91, type: 3}
+--- !u!1 &2041041851
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2041041852}
+  m_Layer: 0
+  m_Name: Target platform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2041041852
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041041851}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.76, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 154312982}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2111875922
 GameObject:
   m_ObjectHideFlags: 0
