@@ -1,5 +1,8 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
+using Slider = UnityEngine.UI.Slider;
 
 namespace Game
 {
@@ -33,7 +36,6 @@ namespace Game
 
         void Start()
         {
-            jumpSlider.value = 100;
             Application.targetFrameRate = 60;
         }
 
@@ -48,6 +50,7 @@ namespace Game
             if (Input.GetButtonDown("Jump")  & isGrounded )
             {
                 jumping = true;
+                StartCoroutine(JumpEvent());
 
             }
             float y = Input.GetAxis("Horizontal");
@@ -61,16 +64,26 @@ namespace Game
 
             if (jumping)
             {
-                
+
                 
                 
                 controller.AddForce(new Vector2(0f, jumpForce));
                 jumping = false;
             }
+            
+            
 
             
         }
 
 
+        public IEnumerator JumpEvent()
+        {
+            for (float i = jumpSlider.value; i < 0; i--)
+            {
+                jumpSlider.value--;
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
     }
 }
