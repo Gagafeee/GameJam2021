@@ -27,8 +27,9 @@ public class DieZone : MonoBehaviour
     public void Die()
     {
         isDie = true;
-        StartCoroutine(PausePanel.instance.PauseCor());
-        playerController.Instance.controller.bodyType = RigidbodyType2D.Dynamic;
+        playerController.Instance.movementIsEnabled = false;
+        cameraFollow.Instance.isActive = false;
+        //border.Instance.isActive = false;
         StartCoroutine(Respawn());
     }
 
@@ -43,7 +44,11 @@ public class DieZone : MonoBehaviour
         yield return new WaitForSeconds(4.3f);
         player.transform.position = respawnPoint.transform.position;
         panel.SetActive(false);
-        StartCoroutine(PausePanel.instance.ResumeCor());
+        playerController.Instance.movementIsEnabled = true;
+        playerController.Instance.controller.bodyType = RigidbodyType2D.Dynamic;
+        cameraFollow.Instance.isActive = true;
+        //border.Instance.isActive = false;
+        panel.SetActive(false);
         isDie = false;
         GetComponent<BoxCollider2D>().enabled = true;
         cameraFollow.Instance.smoothSpeed = 12;
