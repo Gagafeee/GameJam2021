@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Game
 {
@@ -23,6 +24,8 @@ namespace Game
         public bool isGrounded = false;
         public bool movementIsEnabled = true;
 
+        public Slider jumpSlider;
+
         private void Awake()
         {
             Instance = this;
@@ -30,6 +33,7 @@ namespace Game
 
         void Start()
         {
+            jumpSlider.value = 100;
             Application.targetFrameRate = 60;
         }
 
@@ -57,10 +61,14 @@ namespace Game
 
             if (jumping)
             {
+                
+                
+                
                 controller.AddForce(new Vector2(0f, jumpForce));
                 jumping = false;
             }
 
+            
         }
 
 

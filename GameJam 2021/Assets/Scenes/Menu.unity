@@ -629,7 +629,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1294148124}
           m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
-          m_MethodName: enlargePanel
+          m_MethodName: EnlargePanel
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -645,7 +645,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1294148124}
           m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
-          m_MethodName: minimizePanel
+          m_MethodName: MinimizePanel
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -902,7 +902,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1294148124}
         m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
-        m_MethodName: quitApp
+        m_MethodName: QuitApp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1035,7 +1035,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1294148124}
         m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
-        m_MethodName: play
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
