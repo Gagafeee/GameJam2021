@@ -17,8 +17,8 @@ public class PlateformManager : MonoBehaviour
     {
         redPlateform = GameObject.FindGameObjectsWithTag("Plateform");
         MovePlatform();
-
-        //target = (redPlateformPosX, 0,0);
+        size = redPlateform.Length;
+        target = (redPlateformPosX,0,0);
 
     }
 
