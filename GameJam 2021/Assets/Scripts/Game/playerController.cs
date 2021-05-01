@@ -48,7 +48,7 @@ namespace Game
 
         void FixedUpdate()
         {
-            //isGrounded = Physics2D.OverlapArea(groundCheckLeft.position,groundCheckRight.position);
+
 
             playerAnimator.SetBool("isGrounded", isGrounded);
             playerAnimator.SetFloat("Speed", controller.velocity.x);
