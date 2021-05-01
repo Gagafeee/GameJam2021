@@ -7,20 +7,29 @@ using UnityEngine.UI;
 
 public class LoadingSystem : MonoBehaviour
 {
-    public static LoadingSystem Instance;
     public GameObject panel;
     public Text panelOperation;
     public bool isLoading;
+    
+    
+    
+    public static LoadingSystem Instance;
+    private static GameObject Panel;
+    private static Text PanelOperation;
+    private static bool IsLoading;
 
     private void Awake()
     {
         Instance = this;
+        Panel = panel;
+        PanelOperation = panelOperation;
+        isLoading = IsLoading;
     }
 
-    public void LoadOperation(string operation)
+    public static void LoadOperation(string operation)
     {
-        panel.SetActive(true);
-        panelOperation.text = operation;
-        isLoading = true;
+        Panel.SetActive(true);
+        PanelOperation.text = operation;
+        IsLoading = true;
     }
 }

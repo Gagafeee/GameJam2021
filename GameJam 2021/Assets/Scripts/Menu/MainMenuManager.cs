@@ -8,25 +8,27 @@ public class MainMenuManager : MonoBehaviour
 {
     public Animator mainPanelAnimator;
 
-    public void enlargePanel()
+    public void EnlargePanel()
     {
+        // ReSharper disable once Unity.PreferAddressByIdToGraphicsParams
         mainPanelAnimator.SetBool("isTargeted", true);
     }
 
-    public void minimizePanel()
+    public void MinimizePanel()
     {
+        // ReSharper disable once Unity.PreferAddressByIdToGraphicsParams
         mainPanelAnimator.SetBool("isTargeted", false);
     }
 
-    public void quitApp()
+    public void QuitApp()
     {
-        LoadingSystem.Instance.LoadOperation("Application.Quit(0)");
+        LoadingSystem.LoadOperation("Application.Quit(0)");
         Application.Quit();
     }
 
-    public void play()
+    public void Play()
     {
-        LoadingSystem.Instance.LoadOperation("Event.Play()");
-        SceneManager.LoadScene("Game");
+        LoadingSystem.LoadOperation("Scene.load(Play())");
+        SceneManager.LoadSceneAsync("Game");
     }
 }

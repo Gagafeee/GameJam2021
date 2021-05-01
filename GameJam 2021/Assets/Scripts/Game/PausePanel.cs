@@ -1,28 +1,29 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Game;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PausePanel : MonoBehaviour
 {
     public GameObject Panel;
     public bool isInPause;
-    public Component playerControllerScript;
-    public GameObject player;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (isInPause == false)
-            {
-                Pause();
-            }
-
             if (isInPause)
             {
                 Resume();
             }
+            else
+            {
+               Pause(); 
+            }
+            
+
         }
 
 
@@ -30,8 +31,10 @@ public class PausePanel : MonoBehaviour
 
     public void Pause()
     {
-        //playerController.Instance.movementIsEnabled = false;
+        playerController.Instance.movementIsEnabled = false;
+        playerController.Instance.controller.bodyType = RigidbodyType2D.Static;
         cameraFollow.Instance.isActive = false;
+        //border.Instance.isActive = false;
         Panel.SetActive(true);
         isInPause = true;
     }
@@ -39,9 +42,22 @@ public class PausePanel : MonoBehaviour
     public void Resume()
     {
         Panel.SetActive(false);
-        player.playerControllerScript.movementIsEnabled = true;
+        playerController.Instance.movementIsEnabled = true;
+        playerController.Instance.controller.bodyType = RigidbodyType2D.Dynamic;
         cameraFollow.Instance.isActive = true;
         isInPause = false;
+    }
+
+    public void Menu()
+    {
+        LoadingSystem.LoadOperation("Scene.load(Menu())");
+        SceneManager.LoadSceneAsync("Menu");
+    }
+
+    public void Quit()
+    {
+        LoadingSystem.LoadOperation("Application.Quit(0)");
+        Application.Quit();
     }
     
 }
