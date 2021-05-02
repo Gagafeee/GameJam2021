@@ -34,7 +34,7 @@ public class BorderMagager : MonoBehaviour
             DieZone.instance.Die();
             if (DieZone.instance.isDie)
             {
-                transform.position = new Vector3(-0.33f,0f,0f);
+                transform.position = new Vector3(-11.9f,0f,0f);
                 isActive = false;
             }
 

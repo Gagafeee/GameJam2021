@@ -53,7 +53,7 @@ public class PausePanel : MonoBehaviour
         playerController.Instance.movementIsEnabled = false;
         playerController.Instance.controller.bodyType = RigidbodyType2D.Static;
         cameraFollow.Instance.isActive = false;
-        //border.Instance.isActive = false;
+        BorderMagager.instance.isActive = false;
                 
     }
 
@@ -77,7 +77,7 @@ public class PausePanel : MonoBehaviour
         playerController.Instance.movementIsEnabled = true;
         playerController.Instance.controller.bodyType = RigidbodyType2D.Dynamic;
         cameraFollow.Instance.isActive = true;
-        //border.Instance.isActive = false;
+        BorderMagager.instance.isActive = true;
         panel.SetActive(false);
     }
 
