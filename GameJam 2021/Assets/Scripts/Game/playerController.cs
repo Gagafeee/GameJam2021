@@ -32,7 +32,6 @@ namespace Game
 
         [SerializeField] Rigidbody2D controllerRB;
         [SerializeField] public Transform groundCheckLeft;
-        [SerializeField] public Transform groundCheckRight;
         [SerializeField] private Vector3 velocity;
 
 
@@ -107,6 +106,7 @@ namespace Game
 
         public IEnumerator Jump()
         {
+            yield return new WaitForSeconds(0.1f);
             // ReSharper disable once Unity.PreferAddressByIdToGraphicsParams
             playerAnimator.SetTrigger("Jump");
         }
