@@ -5,6 +5,8 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
+using UnityEditor;
 
 namespace Game
 {
@@ -95,24 +97,19 @@ namespace Game
             if (jumping)
 
             {
-
-                
-                
+                StartCoroutine(Jump());
                 controller.AddForce(new Vector2(0f, jumpForce));
                 jumping = false;
-
-                {
-                    controller.AddForce(new Vector2(0f, jumpForce));
-                    jumping = false;
-
-                    if (jumping)
-                    {
-                        controllerRB.AddForce(new Vector2(0f, jumpForce));
-                        jumping = false;
-
-                    }
-                }
             }
+            
+            
         }
+
+        public IEnumerator Jump()
+        {
+            // ReSharper disable once Unity.PreferAddressByIdToGraphicsParams
+            playerAnimator.SetTrigger("Jump");
+        }
+        
     }
 }

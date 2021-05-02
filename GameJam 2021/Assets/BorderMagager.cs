@@ -1,18 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BorderMagager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float speed;
+    public Transform target;
+    public bool isActive;
+    private void Update()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (isActive)
+        {
+            Vector3 dir = target.position - transform.position;
+            transform.Translate(dir.normalized * (speed * Time.deltaTime), Space.World); 
+        }
+       
     }
 }
