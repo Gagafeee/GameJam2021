@@ -32,7 +32,7 @@ public class DieZone : MonoBehaviour
     {
         isDie = true;
 
-        playerController.Instance.controller.bodyType = RigidbodyType2D.Dynamic;
+        playerController.Instance.controller.bodyType = RigidbodyType2D.Static;
         BorderMagager.instance.isActive = false;
         // ReSharper disable once Unity.PreferAddressByIdToGraphicsParams
         playerController.Instance.playerAnimator.SetTrigger("Die");
