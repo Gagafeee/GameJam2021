@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlateformManager : MonoBehaviour
 {
     public GameObject[] redPlateform;
-
+public Vector3[] startposX;
     public float redPlateformPosX;
     public float speed;
     public Transform target;
@@ -13,7 +13,8 @@ public class PlateformManager : MonoBehaviour
     public static PlateformManager instance;
     public GameObject platObj;
     public Vector3 platpos;
-    public Transform[] startposX;
+    
+    public bool isTheFirstTime;
     private void Awake()
     {
         instance = this;
@@ -25,11 +26,8 @@ public class PlateformManager : MonoBehaviour
         plateID = 0;
         moveRedPlatform = false;
         redPlateform = GameObject.FindGameObjectsWithTag("Plateform");
+        isTheFirstTime = true;
 
-        for (int i = redPlateform.Length; i != 0; i--)
-        {
-            startposX = (redPlateform[i].transform.position.x);
-        }
 
     }
 
@@ -45,6 +43,7 @@ public class PlateformManager : MonoBehaviour
             {
                 moveRedPlatform = false;
                 plateID = 0;
+                isTheFirstTime = false;
                 return;
             }
 
@@ -58,8 +57,13 @@ public class PlateformManager : MonoBehaviour
     // ReSharper disable Unity.PerformanceAnalysis
     public void MovePlatform()
     {
+      //  Vector3 StartPos = Vector3.zero;
+      //       StartPos.y = redPlateform[plateID].transform.position.y;
+      //       StartPos.x = redPlateform[plateID].transform.position.x;
+     //
+      //       startposX[plateID] = StartPos;
 
-        redPlateformPosX = Random.Range(-5, 5);
+        redPlateformPosX = Random.Range(-2, 2);
         platObj = redPlateform[plateID];
         platpos = platObj.transform.position;
         var targetPosition = target.position;
@@ -67,13 +71,8 @@ public class PlateformManager : MonoBehaviour
         targetPosition.y = platpos.y;
         target.position = targetPosition;
         
-        //platpos = redPlateform[plateID].transform.position.y;
-        //GameObject PlateformTarget = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        //PlateformTarget.tag = "PlateformTargetPoint";
-        //PlateformTarget.GetComponent<MeshRenderer>().enabled = false;
-        //PlateformTarget.transform.position = redPlateform[plateID].transform.position;
-        //PlateformTarget.name = "[AUTOGENERATE] plateform travel point";
-        //target = PlateformTarget.transform;
+       
+
         moveRedPlatform = true;
 
 

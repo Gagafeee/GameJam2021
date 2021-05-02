@@ -15,7 +15,11 @@ public class DieZone : MonoBehaviour
     public bool isDie;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Die();
+        if (other.CompareTag("Player"))
+        {
+           Die(); 
+        }
+        
     }
 
     private void Awake()
@@ -41,16 +45,20 @@ public class DieZone : MonoBehaviour
         GetComponent<BoxCollider2D>().enabled = false;
         cameraFollow.Instance.smoothSpeed = 50;
         panel.SetActive(true);
-        // ReSharper disable once Unity.PreferAddressByIdToGraphicsParams
-        respawnAnimator.SetTrigger("Die");
-        yield return new WaitForSeconds(4.3f);
+        
         // ReSharper disable once Unity.PreferAddressByIdToGraphicsParams
         playerController.Instance.playerAnimator.SetTrigger("Revive");
         player.transform.position = respawnPoint.transform.position;
+        // ReSharper disable once Unity.PreferAddressByIdToGraphicsParams
+        respawnAnimator.SetBool("Die", true);
+        yield return new WaitForSeconds(4.3f);
         panel.SetActive(false);
         StartCoroutine(PausePanel.instance.ResumeCor());
         isDie = false;
         GetComponent<BoxCollider2D>().enabled = true;
         cameraFollow.Instance.smoothSpeed = 12;
+        player.transform.position = respawnPoint.transform.position;
+        // ReSharper disable once Unity.PreferAddressByIdToGraphicsParams
+        respawnAnimator.SetBool("Die", false);
     }
 }
