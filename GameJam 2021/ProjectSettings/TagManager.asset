@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Plateform
   - PlateformTargetPoint
+  - Ground
   layers:
   - Default
   - TransparentFX

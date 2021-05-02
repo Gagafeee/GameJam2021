@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections;
 
@@ -30,11 +31,16 @@ namespace Game
 
         private void OnTriggerStay2D(Collider2D groundcheck)
         {
-            if (groundcheck.CompareTag("Ground"))
+            if (groundcheck.CompareTag("Ground") || groundcheck.CompareTag("Plateform"))
             {
                  isGrounded = true;
             }
            
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+          //  if(other.Distance())
         }
 
         private void OnCollisionExit2D(Collision2D other)
