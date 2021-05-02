@@ -27,7 +27,7 @@ public class DieZone : MonoBehaviour
     public void Die()
     {
         isDie = true;
-        StartCoroutine(PausePanel.instance.PauseCor());
+
         playerController.Instance.controller.bodyType = RigidbodyType2D.Dynamic;
         StartCoroutine(Respawn());
     }
