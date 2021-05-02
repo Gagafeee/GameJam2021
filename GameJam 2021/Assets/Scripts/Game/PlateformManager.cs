@@ -1,3 +1,4 @@
+using Game;
 using UnityEngine;
 
 public class PlateformManager : MonoBehaviour
@@ -12,6 +13,7 @@ public class PlateformManager : MonoBehaviour
     public static PlateformManager instance;
     public GameObject platObj;
     public Vector3 platpos;
+    public Transform[] startposX;
     private void Awake()
     {
         instance = this;
@@ -23,6 +25,11 @@ public class PlateformManager : MonoBehaviour
         plateID = 0;
         moveRedPlatform = false;
         redPlateform = GameObject.FindGameObjectsWithTag("Plateform");
+
+        for (int i = redPlateform.Length; i != 0; i--)
+        {
+            startposX = (redPlateform[i].transform.position.x);
+        }
 
     }
 
