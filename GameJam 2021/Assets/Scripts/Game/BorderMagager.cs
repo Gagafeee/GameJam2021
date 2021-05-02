@@ -8,9 +8,13 @@ public class BorderMagager : MonoBehaviour
     public float speed;
     public Transform target;
     public bool isActive;
+    public static BorderMagager instance;
 
-    [SerializeField]
-    public Collider2D wallCollider;
+    private void Awake()
+    {
+        instance = this;
+    }
+
     private void Update()
     {
         if (isActive)
@@ -18,11 +22,6 @@ public class BorderMagager : MonoBehaviour
             Vector3 dir = target.position - transform.position;
             transform.Translate(dir.normalized * (speed * Time.deltaTime), Space.World); 
         }
-
-
-
-
-
        
     }
     private void OnTriggerStay2D(Collider2D wallCollider)
@@ -30,18 +29,16 @@ public class BorderMagager : MonoBehaviour
     {
 
         if (wallCollider.CompareTag("Player"))
-		{
+        {
             DieZone.instance.Die();
             if (DieZone.instance.isDie)
-			{
+            {
                 transform.position = new Vector3(-0.33f,0f,0f);
                 isActive = false;
-			}
+            }
 
 
 
-		}
+        }
     }
-
-
 }
