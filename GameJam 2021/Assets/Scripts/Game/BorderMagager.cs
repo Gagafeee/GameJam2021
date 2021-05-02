@@ -9,7 +9,6 @@ public class BorderMagager : MonoBehaviour
     public Transform target;
     public bool isActive;
     public static BorderMagager instance;
-    public Collider2D collider;
 
     private void Awake()
     {

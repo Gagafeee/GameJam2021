@@ -31,13 +31,15 @@ public class DieZone : MonoBehaviour
     public void Die()
     {
         isDie = true;
-
+        AudioList.instance.AudioLowPassFilter.cutoffFrequency = 500;
+        playerController.Instance.movementIsEnabled = false;
         playerController.Instance.controller.bodyType = RigidbodyType2D.Static;
         BorderMagager.instance.isActive = false;
         // ReSharper disable once Unity.PreferAddressByIdToGraphicsParams
         playerController.Instance.playerAnimator.SetTrigger("Die");
         StartCoroutine(Respawn());
     }
+
 
     // ReSharper disable Unity.PerformanceAnalysis
     public IEnumerator Respawn()
@@ -60,5 +62,8 @@ public class DieZone : MonoBehaviour
         player.transform.position = respawnPoint.transform.position;
         // ReSharper disable once Unity.PreferAddressByIdToGraphicsParams
         respawnAnimator.SetBool("Die", false);
+        AudioList.instance.AudioLowPassFilter.cutoffFrequency = 22000;
+        playerController.Instance.controller.bodyType = RigidbodyType2D.Dynamic;
+        playerController.Instance.movementIsEnabled = true;
     }
 }

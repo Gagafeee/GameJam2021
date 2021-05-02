@@ -72,7 +72,6 @@ public class PausePanel : MonoBehaviour
     public IEnumerator ResumeCor()
     {
         // ReSharper disable once Unity.PreferAddressByIdToGraphicsParams
-        panelAnimator.SetBool("isVisible", false);
         yield return new WaitForSeconds(0.30f);
         playerController.Instance.movementIsEnabled = true;
         playerController.Instance.controller.bodyType = RigidbodyType2D.Dynamic;
@@ -83,13 +82,11 @@ public class PausePanel : MonoBehaviour
 
     public void Menu()
     {
-        LoadingSystem.LoadOperation("Scene.load(Menu())");
         SceneManager.LoadSceneAsync("Menu");
     }
 
     public void Quit()
     {
-        LoadingSystem.LoadOperation("Application.Quit(0)");
         Application.Quit();
     }
     

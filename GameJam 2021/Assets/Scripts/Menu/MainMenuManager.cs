@@ -22,13 +22,11 @@ public class MainMenuManager : MonoBehaviour
 
     public void QuitApp()
     {
-        LoadingSystem.LoadOperation("Application.Quit(0)");
         Application.Quit();
     }
 
     public void Play()
     {
-        LoadingSystem.LoadOperation("Scene.load(Play())");
         SceneManager.LoadSceneAsync("Game");
     }
 }

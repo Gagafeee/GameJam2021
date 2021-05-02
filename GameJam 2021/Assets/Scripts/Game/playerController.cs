@@ -9,14 +9,14 @@ namespace Game
     {
         public static playerController Instance;
         [SerializeField] float speed = 10f;
-        [SerializeField] public float jumpForce = 10f;
+        [SerializeField] public float jumpForce = 300;
         [SerializeField] public Rigidbody2D controller;
         private Vector3 _velocity = Vector3.zero;
         public bool jumping = false;
         public bool isGrounded = false;
         public bool movementIsEnabled = true;
         public Animator playerAnimator;
-        [SerializeField] private Vector3 velocity;
+        private Vector3 velocity;
 
 
         private void Awake()
@@ -26,8 +26,9 @@ namespace Game
 
         void Start()
         {
-            Application.targetFrameRate = 60;
             Cursor.lockState = CursorLockMode.Locked;
+            jumpForce = 300;
+            movementIsEnabled = true;
         }
 
         private void OnTriggerStay2D(Collider2D groundcheck)
@@ -39,11 +40,6 @@ namespace Game
            
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-          //  if(other.Distance())
-        }
-
         private void OnCollisionExit2D(Collision2D other)
         {
             isGrounded = false;
@@ -52,18 +48,20 @@ namespace Game
 
         void FixedUpdate()
         {
+            
+            Debug.Log("log :" + "Movement : " + movementIsEnabled + " " + "jumpForce : " + jumpForce + " " + "Jumping : " + jumping);
             // ReSharper disable once Unity.PreferAddressByIdToGraphicsParams
             playerAnimator.SetFloat("Speed", controller.velocity.x);
             // ReSharper disable once Unity.PreferAddressByIdToGraphicsParams
             playerAnimator.SetBool("isGrounded", isGrounded);
 
             if (!movementIsEnabled) return;
-            if (Input.GetButtonDown("Jump") & isGrounded)
+            if (Input.GetKeyDown(KeyCode.Space) & isGrounded)
             {
                 StartCoroutine(Jump());
                 PlateformManager.instance.MovePlatform();
-                jumping = true;
-                isGrounded = false;
+                
+                
             }
 
             float y = Input.GetAxis("Horizontal");
@@ -76,21 +74,18 @@ namespace Game
 
             moveVector.y = controller.velocity.y;
 
-
-            controller.velocity = Vector3.SmoothDamp(controller.velocity, moveVector, ref _velocity, .03f);
-
-
-
-
-            if (jumping)
-
-            {
-                
-              controller.AddForce(new Vector2(0f, jumpForce));
-                          jumping = false;
+            if (movementIsEnabled)
+            { 
+                controller.velocity = Vector3.SmoothDamp(controller.velocity, moveVector, ref _velocity, .03f);
+                if (!jumping) return;
+                controller.AddForce(new Vector2(0f, jumpForce));
+                jumping = false;
             }
+
+
             
-            
+
+
         }
 
         public IEnumerator Jump()
@@ -98,9 +93,9 @@ namespace Game
             // ReSharper disable once Unity.PreferAddressByIdToGraphicsParams
             playerAnimator.SetTrigger("Jump");
             yield return new WaitForSeconds(0.1f);
-            
-            
-            
+            jumping = true;
+            isGrounded = false;
+
         }
         
     }

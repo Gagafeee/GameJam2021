@@ -30,8 +30,8 @@ public class cameraFollow : MonoBehaviour
 		if (isActive)
 		{
 			Vector3 WantedPosition = target.position + Offset;
-            		Vector3 smoothPosition = Vector3.Lerp(transform.position,WantedPosition,smoothSpeed * Time.deltaTime);
-            		transform.position = smoothPosition;
+            Vector3 smoothPosition = Vector3.Lerp(transform.position,WantedPosition,smoothSpeed * Time.deltaTime);
+            transform.position = smoothPosition;
 		}
 		
 
