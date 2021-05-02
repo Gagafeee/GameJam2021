@@ -2680,6 +2680,11 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3898303308340265818, guid: e7184916efad24e4183c756329b74691, type: 3}
+      propertyPath: m_Text
+      value: "ou l'ame errante que vous etes disparaitra\nmais cela d\xE9pendra de
+        vos choix.."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3898303308340265818, guid: e7184916efad24e4183c756329b74691, type: 3}
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
@@ -3925,7 +3930,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2108982356}
   m_LocalRotation: {x: -0, y: -0.058183108, z: -0, w: 0.998306}
-  m_LocalPosition: {x: -7.33, y: 0, z: 0}
+  m_LocalPosition: {x: -8.57, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1.4125, z: 1}
   m_Children: []
   m_Father: {fileID: 1805720945}
@@ -4005,7 +4010,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2108982356}
   serializedVersion: 7
-  lengthInSec: 5
+  lengthInSec: 0.05
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -4080,7 +4085,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 7.82
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -4830,7 +4835,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 100
+      scalar: 200
       minScalar: 10
       maxCurve:
         serializedVersion: 2
