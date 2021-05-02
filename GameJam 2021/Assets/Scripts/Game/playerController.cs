@@ -1,4 +1,5 @@
 
+using System;
 using UnityEngine;
 
 
@@ -18,7 +19,6 @@ namespace Game
 
 
         [SerializeField] public Rigidbody2D controller;
-        [SerializeField] Collider2D Groundcheck;
 
 
 
@@ -31,7 +31,6 @@ namespace Game
         public Animator playerAnimator;
 
         [SerializeField] Rigidbody2D controllerRB;
-        [SerializeField] public Transform groundCheckLeft;
         [SerializeField] private Vector3 velocity;
 
 
@@ -45,19 +44,20 @@ namespace Game
             Application.targetFrameRate = 60;
         }
 
-        private void OnTriggerEnter2D(Collider2D Groundcheck)
+        private void OnTriggerStay2D(Collider2D Groundcheck)
         {
             isGrounded = true;
             Debug.Log("change state grounded true");
         }
 
-
-
-		void FixedUpdate()
+        private void OnCollisionExit2D(Collision2D other)
         {
-            //isGrounded = Physics2D.OverlapArea(groundCheckLeft.position,groundCheckRight.position);
+            isGrounded = false;
+        }
 
 
+        void FixedUpdate()
+        {
             playerAnimator.SetFloat("Speed", controller.velocity.x);
 
     playerAnimator.SetFloat("Speed", controller.velocity.x);
