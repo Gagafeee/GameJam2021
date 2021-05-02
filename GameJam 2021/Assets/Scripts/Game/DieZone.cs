@@ -30,6 +30,8 @@ public class DieZone : MonoBehaviour
 
         playerController.Instance.controller.bodyType = RigidbodyType2D.Dynamic;
         BorderMagager.instance.isActive = false;
+        // ReSharper disable once Unity.PreferAddressByIdToGraphicsParams
+        playerController.Instance.playerAnimator.SetTrigger("Die");
         StartCoroutine(Respawn());
     }
 
@@ -42,6 +44,8 @@ public class DieZone : MonoBehaviour
         // ReSharper disable once Unity.PreferAddressByIdToGraphicsParams
         respawnAnimator.SetTrigger("Die");
         yield return new WaitForSeconds(4.3f);
+        // ReSharper disable once Unity.PreferAddressByIdToGraphicsParams
+        playerController.Instance.playerAnimator.SetTrigger("Revive");
         player.transform.position = respawnPoint.transform.position;
         panel.SetActive(false);
         StartCoroutine(PausePanel.instance.ResumeCor());
