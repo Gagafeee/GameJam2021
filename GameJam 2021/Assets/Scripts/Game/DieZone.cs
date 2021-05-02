@@ -29,6 +29,7 @@ public class DieZone : MonoBehaviour
         isDie = true;
 
         playerController.Instance.controller.bodyType = RigidbodyType2D.Dynamic;
+        BorderMagager.instance.isActive = false;
         StartCoroutine(Respawn());
     }
 
