@@ -58,7 +58,6 @@ public class PausePanel : MonoBehaviour
 
     public void Resume()
     {
-
         StartCoroutine(ResumeCor());
         
 
