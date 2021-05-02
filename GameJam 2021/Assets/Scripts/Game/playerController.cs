@@ -1,13 +1,6 @@
-
-using System;
 using UnityEngine;
-
-
 using System.Collections;
-using UnityEngine;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-using UnityEditor;
+
 
 namespace Game
 {
@@ -16,21 +9,12 @@ namespace Game
         public static playerController Instance;
         [SerializeField] float speed = 10f;
         [SerializeField] public float jumpForce = 10f;
-
-
         [SerializeField] public Rigidbody2D controller;
-
-
-
         private Vector3 _velocity = Vector3.zero;
         public bool jumping = false;
         public bool isGrounded = false;
         public bool movementIsEnabled = true;
-
-
         public Animator playerAnimator;
-
-        [SerializeField] Rigidbody2D controllerRB;
         [SerializeField] private Vector3 velocity;
 
 
@@ -44,10 +28,13 @@ namespace Game
             Application.targetFrameRate = 60;
         }
 
-        private void OnTriggerStay2D(Collider2D Groundcheck)
+        private void OnTriggerStay2D(Collider2D groundcheck)
         {
-            isGrounded = true;
-            Debug.Log("change state grounded true");
+            if (groundcheck.CompareTag("Ground"))
+            {
+                 isGrounded = true;
+            }
+           
         }
 
         private void OnCollisionExit2D(Collision2D other)
@@ -58,13 +45,15 @@ namespace Game
 
         void FixedUpdate()
         {
+            // ReSharper disable once Unity.PreferAddressByIdToGraphicsParams
             playerAnimator.SetFloat("Speed", controller.velocity.x);
-
-    playerAnimator.SetFloat("Speed", controller.velocity.x);
+            // ReSharper disable once Unity.PreferAddressByIdToGraphicsParams
+            playerAnimator.SetBool("isGrounded", isGrounded);
 
             if (!movementIsEnabled) return;
             if (Input.GetButtonDown("Jump") & isGrounded)
             {
+                StartCoroutine(Jump());
                 PlateformManager.instance.MovePlatform();
                 jumping = true;
                 isGrounded = false;
@@ -83,32 +72,28 @@ namespace Game
 
             controller.velocity = Vector3.SmoothDamp(controller.velocity, moveVector, ref _velocity, .03f);
 
-            controller.velocity = Vector3.SmoothDamp(controller.velocity, moveVector, ref _velocity, .03f);
-
-
-            moveVector.y = controllerRB.velocity.y;
-
-            
-            controllerRB.velocity = Vector3.SmoothDamp(controllerRB.velocity, moveVector, ref velocity, .03f);
 
 
 
             if (jumping)
 
             {
-                StartCoroutine(Jump());
-                controller.AddForce(new Vector2(0f, jumpForce));
-                jumping = false;
+                
+              controller.AddForce(new Vector2(0f, jumpForce));
+                          jumping = false;
             }
             
             
         }
 
         public IEnumerator Jump()
-        {
-            yield return new WaitForSeconds(0.1f);
+        { 
             // ReSharper disable once Unity.PreferAddressByIdToGraphicsParams
             playerAnimator.SetTrigger("Jump");
+            yield return new WaitForSeconds(0.1f);
+            
+            
+            
         }
         
     }
