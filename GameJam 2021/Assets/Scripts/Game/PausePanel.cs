@@ -39,6 +39,7 @@ public class PausePanel : MonoBehaviour
 
     public void Pause()
     {
+        Cursor.lockState = CursorLockMode.None;
         panel.SetActive(true);
         StartCoroutine(PauseCor());
         isInPause = true;
@@ -64,7 +65,7 @@ public class PausePanel : MonoBehaviour
         panel.SetActive(false);
         //player.playerControllerScript.movementIsEnabled = true;
         cameraFollow.Instance.isActive = true;
-
+        Cursor.lockState = CursorLockMode.Locked;
         isInPause = false;
     }
 

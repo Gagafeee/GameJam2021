@@ -22,6 +22,7 @@ public class cameraFollow : MonoBehaviour
 	private void Start()
 	{
 		isActive = true;
+		Offset.z = -2;
 	}
 
 	private void LateUpdate()

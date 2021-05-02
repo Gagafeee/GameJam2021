@@ -9,6 +9,7 @@ public class BorderMagager : MonoBehaviour
     public Transform target;
     public bool isActive;
     public static BorderMagager instance;
+    public Collider2D collider;
 
     private void Awake()
     {
@@ -22,7 +23,7 @@ public class BorderMagager : MonoBehaviour
             Vector3 dir = target.position - transform.position;
             transform.Translate(dir.normalized * (speed * Time.deltaTime), Space.World); 
         }
-       
+
     }
     private void OnTriggerStay2D(Collider2D wallCollider)
 
