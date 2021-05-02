@@ -3340,7 +3340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b7efa1cf0388c04e81711dac1a105c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 8.5
   target: {fileID: 1026975401}
   isActive: 0
   collider: {fileID: 0}
