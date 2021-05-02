@@ -1,7 +1,7 @@
-<<<<<<< HEAD
+
 using UnityEngine;
-=======
->>>>>>> parent of 1ec1fd9 (Animation 2)
+
+
 using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
@@ -50,20 +50,17 @@ namespace Game
             Debug.Log("change state grounded true");
         }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> parent of 1ec1fd9 (Animation 2)
 
 		void FixedUpdate()
         {
             //isGrounded = Physics2D.OverlapArea(groundCheckLeft.position,groundCheckRight.position);
 
-<<<<<<< HEAD
+
             playerAnimator.SetFloat("Speed", controller.velocity.x);
-=======
+
     playerAnimator.SetFloat("Speed", controller.velocity.x);
->>>>>>> parent of 1ec1fd9 (Animation 2)
+
             if (!movementIsEnabled) return;
             if (Input.GetButtonDown("Jump") & isGrounded)
             {
@@ -87,14 +84,12 @@ namespace Game
 
             controller.velocity = Vector3.SmoothDamp(controller.velocity, moveVector, ref _velocity, .03f);
 
-<<<<<<< HEAD
+
             moveVector.y = controllerRB.velocity.y;
 
             
             controllerRB.velocity = Vector3.SmoothDamp(controllerRB.velocity, moveVector, ref velocity, .03f);
-=======
 
->>>>>>> parent of 1ec1fd9 (Animation 2)
 
 
             if (jumping)
